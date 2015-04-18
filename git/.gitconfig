@@ -1,0 +1,12 @@
+[push]
+    default = simple
+[pull]
+    default = current
+[merge]
+    tool = vimdiff
+[color]
+    ui = true
+[alias]
+    stat = status
+    ci = commit
+    co = checkout
