@@ -12,8 +12,12 @@ ZSH_THEME="robbyrussell"
 alias datef="date +%Y-%m-%d"        # iso std date
 alias :q="exit"                     # vim like exit
 
+# exports
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
 # path
 export PATH="/usr/local/bin:$PATH"
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
 # prompt
 # red/green exit status
