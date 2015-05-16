@@ -4,9 +4,12 @@
     default = current
 [merge]
     tool = vimdiff
-[color]
-    ui = true
 [alias]
-    stat = status
-    ci = commit
     co = checkout
+    ci = commit
+    stat = status
+[core]
+    compression = 9
+    editor = vim
+[user]
+    signingkey = pretorh
