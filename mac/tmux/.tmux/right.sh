@@ -1,3 +1,3 @@
 echo "#H |" \
-     `~/.tmux/status/batt.sh` \
+     `~/.tmux/status/battery.sh` \
      `date "+%Y-%m-%d %H:%M:%S"`
