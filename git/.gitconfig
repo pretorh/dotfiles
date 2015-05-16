@@ -1,0 +1,16 @@
+[user]
+    signingkey = pretorh
+[core]
+    compression = 9
+    editor = vim
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    stat = status
+[merge]
+    tool = vimdiff
+[push]
+    default = simple
+[pull]
+    default = current
