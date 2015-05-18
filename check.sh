@@ -1,6 +1,6 @@
 if [ -z $1 ] ; then
     # get all files, ignoring os specific roots, .git and .
-    for d in `find -maxdepth 1 -type d | grep -v arch | grep -v mac | grep -ve "\.git$" | grep -ve "^\.$"` ;
+    for d in `find . -maxdepth 1 -type d | grep -v arch | grep -v mac | grep -ve "\.git$" | grep -ve "^\.$"` ;
     do
         # remove leading ./
         $0 ${d:2}
