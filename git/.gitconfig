@@ -11,5 +11,5 @@
 [core]
     compression = 9
     editor = vim
-[user]
-    signingkey = pretorh
+[include]
+    path = git/user.config
