@@ -3,17 +3,21 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-ZSH_THEME="robbyrussell"
-
-# aliases
-alias datef="date +%Y-%m-%d"        # iso std date
-alias :q="exit"                     # vim like exit
-
 # exports
 export ANDROID_HOME=$HOME/Library/Android/sdk
+zstyle :compinstall filename '$HOME/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+autoload -U promptinit
+promptinit
+
+zstyle ':completion:*' menu select 'm:{a-z}={A-Z}'
+setopt completealiases
+bindkey -v
+
+autoload -U colors && colors
 
 # path
 export PATH="/usr/local/bin:$PATH"
