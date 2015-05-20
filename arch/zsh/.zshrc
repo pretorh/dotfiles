@@ -14,13 +14,6 @@ setopt HIST_IGNORE_DUPS
 # paths
 export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:/opt/android-sdk/tools/:$HOME/node_modules/.bin/
 export PATH="$HOME/perl5/bin:$PATH";
-export LD_LIBRARY_PATH=lib/:$HOME/local/libs/:./
-export NODE_PATH=$HOME/data/node_modules/:$HOME/docs/codes/workcopy/
-
-export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:$HOME/perl5";
-export PERL_MB_OPT="--install_base $HOME/perl5";
-export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
-export PERL5LIB="$HOME/perl5/lib/perl5:$HOME/docs/codes/workcopy/perl-libs/:/media/truecrypt1/tools/lib/:$HOME/docs/codes/workcopy/file-copy-service/client/perl/:$PERL5LIB";
 export CHROME_BIN="chromium"
 export PHANTOMJS_BIN="phantomjs"
 
