@@ -12,7 +12,8 @@ SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
 
 # paths
-export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:/opt/android-sdk/tools/:$HOME/node_modules/.bin/
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:$ANDROID_HOME/tools/:$HOME/node_modules/.bin/
 export PATH="$HOME/perl5/bin:$PATH";
 export CHROME_BIN="chromium"
 export PHANTOMJS_BIN="phantomjs"
