@@ -11,6 +11,12 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
 
+if (uname -a | grep "Darwin" > /dev/null); then
+    isDarwin=1
+elif (uname -a | grep "ARCH" > /dev/null); then
+    isArch=1
+fi
+
 # paths
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:$ANDROID_HOME/tools/:$HOME/node_modules/.bin/
@@ -18,7 +24,7 @@ export PATH="$HOME/perl5/bin:$PATH";
 export CHROME_BIN="chromium"
 export PHANTOMJS_BIN="phantomjs"
 
-source $HOME/.zsh/os/arch.sh
+[ $isArch ] && source $HOME/.zsh/os/arch.sh
 
 zstyle :compinstall filename '$HOME/.zshrc'
 
