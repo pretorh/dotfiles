@@ -6,7 +6,7 @@ alias vi="vim"
 alias :q='exit'                         # vim like exit
 
 # history
-HISTFILE=~/.zshistfile
+HISTFILE=~/.zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
@@ -48,5 +48,10 @@ setopt completealiases
 bindkey -v
 
 autoload -U colors && colors
-# from mac
+
+# prompt
+# red/green exit status
+# yellow host name
+# cyan current dir (limit to last 3 levels)
+# reset color, colon, trailing space
 PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[yellow]%}%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
