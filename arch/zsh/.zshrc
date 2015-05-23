@@ -17,9 +17,16 @@ elif (uname -a | grep "ARCH" > /dev/null); then
     isArch=1
 fi
 
+# android
+if [ $isDarwin ] ; then
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+else
+    export ANDROID_HOME=/opt/android-sdk
+fi
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+
 # paths
-export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:$ANDROID_HOME/tools/:$HOME/node_modules/.bin/
+export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:$HOME/node_modules/.bin/
 export PATH="$HOME/perl5/bin:$PATH";
 export CHROME_BIN="chromium"
 export PHANTOMJS_BIN="phantomjs"
