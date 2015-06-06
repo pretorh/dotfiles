@@ -19,6 +19,7 @@ set colorcolumn=110
 syntax enable
 set background=dark
 colorscheme koehler
+:highlight Normal ctermbg=black
 
 " highlight extra whitespace
 :highlight ExtraWhitespace ctermbg=darkred
