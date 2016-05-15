@@ -29,6 +29,7 @@ export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 # paths
 export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:$HOME/node_modules/.bin/
 export PATH="$HOME/perl5/bin:$PATH";
+export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH";
 export CHROME_BIN="chromium"
 export PHANTOMJS_BIN="phantomjs"
 
