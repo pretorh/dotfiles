@@ -1,6 +1,6 @@
 perc=`pmset -g batt | grep % | perl -pe "s/^.+-0\s+(\d+%).+$/\1/"`
-remain=`pmset -g batt | grep % | perl -pe "s/^.*(\(no estimate\)).*$/\1/"`
-if [ -z "$remain" ] ; then
+remain=`pmset -g batt | grep % | perl -pe "s/^.*\((no estimate)\).*$/\1/"`
+if [ "$remain" != "no estimate" ] ; then
     remain=`pmset -g batt | grep % | perl -pe "s/^.*(\d:\d\d) remaining.*$/\1/"`
 fi
 
