@@ -4,6 +4,7 @@ alias sso='xautolock -disable'          # disable screen locking
 alias ssi='xautolock -enable'           # re-enable screen locking
 alias vi="vim"
 alias :q='exit'                         # vim like exit
+alias bc="bc -l"                        # load mathlib with bc (scale to 20)
 
 # history
 HISTFILE=~/.zsh/histfile
