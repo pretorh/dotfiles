@@ -7,8 +7,10 @@ fi
 from=`pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/"`
 if [ "$from" == "Battery" ] ; then
     from="🔋 ";
+    remain="$remain remain";
 elif [ "$from" == "AC" ] ; then
     from="⚡ ";
+    remain="$remain till full";
 fi
 
-echo "$from $perc $remain |"
+echo "$from $perc ($remain) |"
