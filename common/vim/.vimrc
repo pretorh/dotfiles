@@ -42,6 +42,9 @@ nmap <C-B> :tabe<CR>:q<CR>:make -k all<CR>
 " F6 = next build output details
 nmap <F6> :cn<CR>
 
+" in normal mode, fold current {...} block using <F9>
+nnoremap <F9> zfa{
+
 " start nerdtree on startup, every tab
 " autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
