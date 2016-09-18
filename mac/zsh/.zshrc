@@ -23,6 +23,8 @@ autoload -U colors && colors
 export PATH="/usr/local/bin:$PATH"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
+alias date=gdate
+
 # prompt
 # red/green exit status
 # yellow host name
