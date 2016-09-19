@@ -25,6 +25,17 @@ export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
 alias date=gdate
 
+function precmd () {
+    NOW=$(($(gdate +%s%N)/1000000))
+    ELAPSED=$((NOW - TIMER));
+
+    RPROMPT="%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${ELAPSED}ms %{$reset_color%}"
+}
+
+function preexec () {
+    TIMER=$(($(gdate +%s%N)/1000000))
+}
+
 # prompt
 # red/green exit status
 # yellow host name
