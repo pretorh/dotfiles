@@ -26,8 +26,12 @@ export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 alias date=gdate
 
 function precmd () {
-    NOW=$(($(gdate +%s%N)/1000000))
-    ELAPSED=$((NOW - TIMER));
+    if [ -z "$TIMER" ] ; then
+        ELAPSED="----"
+    else
+        NOW=$(($(gdate +%s%N)/1000000))
+        ELAPSED=$((NOW - TIMER));
+    fi
 
     RPROMPT="%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${ELAPSED}ms %{$reset_color%}"
 }
