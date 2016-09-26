@@ -26,7 +26,7 @@ export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 alias date=gdate
 
 function precmd () {
-    if [ -z "$TIMER" ] ; then
+    if [ -z "$TIMER" -o -z "$LAST_CMD" ] ; then
         ELAPSED="----"
     else
         NOW=$(($(gdate +%s%N)/1000000))
@@ -34,10 +34,12 @@ function precmd () {
     fi
 
     RPROMPT="%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${ELAPSED}ms %{$reset_color%}"
+    LAST_CMD=
 }
 
 function preexec () {
     TIMER=$(($(gdate +%s%N)/1000000))
+    LAST_CMD=$1
 }
 
 # prompt
