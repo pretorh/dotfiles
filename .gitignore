@@ -1,3 +1,4 @@
 *.swp
 *.swo
 .cmp
+.DS_STORE
