@@ -1,16 +1,27 @@
+# alias
+alias ls='ls -G'    # colorized output
+alias bc="bc -l"    # load mathlib with bc (scale to 20)
+alias date=gdate
+
 HISTFILE=~/.zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
 
-# exports
+# android
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+
+# paths
+export PATH="/usr/local/bin:$PATH"
+
+# zsh
 zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
 
-autoload -U promptinit
+autoload -U compinit promptinit
 promptinit
 
 zstyle ':completion:*' menu select 'm:{a-z}={A-Z}'
@@ -19,11 +30,7 @@ bindkey -v
 
 autoload -U colors && colors
 
-# path
-export PATH="/usr/local/bin:$PATH"
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
-
-alias date=gdate
+# timing
 
 function precmd () {
     if [ -z "$TIMER" -o -z "$LAST_CMD" ] ; then
