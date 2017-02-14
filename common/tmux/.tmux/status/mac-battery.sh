@@ -18,11 +18,17 @@ elif [ "$source" == "AC" ] ; then
     remain_suffix="till full";
 fi
 
+remain_part="($remain $remain_suffix)"
+if [ "$perc" == "100%" -a "$remain" == "0:00" ] ; then
+    remain_part="(full)"
+fi
+
 if [ $DEBUG ] ; then
     echo "pmset line=`pmset -g batt | grep %`"
     echo "perc=$perc"
     echo "remain=$remain"
     echo "remain_suffix=$remain_suffix"
+    echo "remain_part=$remain_part"
     echo "source=$source"
     echo "source_icon=$source_icon"
 fi
@@ -35,4 +41,4 @@ if [ ${#remain} -gt 6 ] ; then
     remain='?'
 fi
 
-echo "$source_icon $perc ($remain $remain_suffix) |"
+echo "$source_icon $perc $remain_part |"
