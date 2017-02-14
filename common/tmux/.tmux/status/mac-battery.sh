@@ -1,4 +1,7 @@
-perc=`pmset -g batt | grep % | perl -pe "s/^.+-0\s+(\d+%).+$/\1/"`
+# get percent line. split by ;, then by spaces
+perc=`pmset -g batt | grep % | awk -F ';' '{print $1}' | awk -F ' ' '{print $3}'`
+
+# get the remaining estimated time
 remain=`pmset -g batt | grep % | perl -pe "s/^.*\((no estimate)\).*$/\1/"`
 if [ "$remain" != "no estimate" ] ; then
     remain=`pmset -g batt | grep % | perl -pe "s/^.*(\d:\d\d) remaining.*$/\1/"`
