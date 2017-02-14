@@ -10,15 +10,16 @@ fi
 source=`pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/"`
 if [ "$source" == "Battery" ] ; then
     source_icon="🔋 ";
-    remain="$remain remain";
+    remain_suffix="remain";
 elif [ "$source" == "AC" ] ; then
     source_icon="⚡ ";
-    remain="$remain till full";
+    remain_suffix="till full";
 fi
 
 if [ $DEBUG ] ; then
     echo "perc=$perc"
     echo "remain=$remain"
+    echo "remain_suffix=$remain_suffix"
     echo "source=$source"
     echo "source_icon=$source_icon"
 fi
@@ -28,7 +29,7 @@ if [ ${#perc} -gt 10 ] ; then
     perc='?%'
 fi
 if [ ${#remain} -gt 12 ] ; then
-    remain='? remain'
+    remain='?'
 fi
 
-echo "$source_icon $perc ($remain) |"
+echo "$source_icon $perc ($remain $remain_suffix) |"
