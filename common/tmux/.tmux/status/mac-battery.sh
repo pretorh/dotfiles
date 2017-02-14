@@ -4,13 +4,13 @@ if [ "$remain" != "no estimate" ] ; then
     remain=`pmset -g batt | grep % | perl -pe "s/^.*(\d:\d\d) remaining.*$/\1/"`
 fi
 
-from=`pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/"`
-if [ "$from" == "Battery" ] ; then
-    from="🔋 ";
+source=`pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/"`
+if [ "$source" == "Battery" ] ; then
+    source_icon="🔋 ";
     remain="$remain remain";
-elif [ "$from" == "AC" ] ; then
-    from="⚡ ";
+elif [ "$source" == "AC" ] ; then
+    source_icon="⚡ ";
     remain="$remain till full";
 fi
 
-echo "$from $perc ($remain) |"
+echo "$source_icon $perc ($remain) |"
