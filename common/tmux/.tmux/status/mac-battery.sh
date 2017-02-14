@@ -13,4 +13,11 @@ elif [ "$source" == "AC" ] ; then
     remain="$remain till full";
 fi
 
+if [ $DEBUG ] ; then
+    echo "perc=$perc"
+    echo "remain=$remain"
+    echo "source=$source"
+    echo "source_icon=$source_icon"
+fi
+
 echo "$source_icon $perc ($remain) |"
