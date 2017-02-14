@@ -32,6 +32,8 @@ autoload -U colors && colors
 
 source ~/.zsh/timing.sh
 
+[ -d ~/.nix-profile ] && source ~/.nix-profile/etc/profile.d/nix.sh
+
 # prompt
 # red/green exit status
 # yellow host name
