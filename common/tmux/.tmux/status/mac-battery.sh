@@ -3,7 +3,9 @@ perc=`pmset -g batt | grep % | awk -F ';' '{print $1}' | awk -F ' ' '{print $3}'
 
 # get the remaining estimated time
 remain=`pmset -g batt | grep % | perl -pe "s/^.*\((no estimate)\).*$/\1/"`
-if [ "$remain" != "no estimate" ] ; then
+if [ "$remain" == "no estimate" ] ; then
+    remain='no est'
+else
     remain=`pmset -g batt | grep % | perl -pe "s/^.*(\d:\d\d) remaining.*$/\1/"`
 fi
 
@@ -17,6 +19,7 @@ elif [ "$source" == "AC" ] ; then
 fi
 
 if [ $DEBUG ] ; then
+    echo "pmset line=`pmset -g batt | grep %`"
     echo "perc=$perc"
     echo "remain=$remain"
     echo "remain_suffix=$remain_suffix"
@@ -28,7 +31,7 @@ fi
 if [ ${#perc} -gt 10 ] ; then
     perc='?%'
 fi
-if [ ${#remain} -gt 12 ] ; then
+if [ ${#remain} -gt 6 ] ; then
     remain='?'
 fi
 
