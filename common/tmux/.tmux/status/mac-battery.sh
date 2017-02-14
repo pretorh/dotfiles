@@ -23,4 +23,12 @@ if [ $DEBUG ] ; then
     echo "source_icon=$source_icon"
 fi
 
+# limit total length
+if [ ${#perc} -gt 10 ] ; then
+    perc='?%'
+fi
+if [ ${#remain} -gt 12 ] ; then
+    remain='? remain'
+fi
+
 echo "$source_icon $perc ($remain) |"
