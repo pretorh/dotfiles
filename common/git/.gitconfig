@@ -13,3 +13,6 @@
     editor = vim
 [include]
     path = git/user.config
+[includeIf "gitdir:~/Documents/work/"]
+    ; use work-specific user details for work repositorries
+    path = git/user-work.config
