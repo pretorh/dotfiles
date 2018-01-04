@@ -62,4 +62,4 @@ LOGIN_FROM=""
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     LOGIN_FROM="[SSH] "
 fi
-PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[yellow]%}$LOGIN_FROM%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
+PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[blue]%}$LOGIN_FROM%{$fg[yellow]%}%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
