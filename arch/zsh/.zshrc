@@ -55,7 +55,11 @@ autoload -U colors && colors
 
 # prompt
 # red/green exit status
-# yellow host name
+# yellow host name [prefixed with SSH if ssh session]
 # cyan current dir (limit to last 3 levels)
 # reset color, colon, trailing space
-PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[yellow]%}%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
+LOGIN_FROM=""
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    LOGIN_FROM="[SSH] "
+fi
+PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[yellow]%}$LOGIN_FROM%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
