@@ -48,9 +48,8 @@ nnoremap <F9> zfa{
 " set backspace (https://stackoverflow.com/a/11560415/1016377)
 :set backspace=indent,eol,start
 
-" start nerdtree on startup, every tab
-" autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTreeMirror
+" bind F2 to toggle and mirror nerd tree
+map <F2> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 " search highlighting
 :hi Search ctermfg=0 ctermbg=3
