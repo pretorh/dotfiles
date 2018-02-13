@@ -45,6 +45,9 @@ nmap <F6> :cn<CR>
 " in normal mode, fold current {...} block using <F9>
 nnoremap <F9> zfa{
 
+" set backspace (https://stackoverflow.com/a/11560415/1016377)
+:set backspace=indent,eol,start
+
 " start nerdtree on startup, every tab
 " autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
