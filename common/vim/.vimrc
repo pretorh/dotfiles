@@ -57,3 +57,6 @@ map <F2> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 " enable highlight while typing
 set incsearch
 :hi IncSearch ctermfg=3 ctermbg=0 term=reverse
+
+" detect all files that start with Dockerfile as dockerfiles
+autocmd BufRead,BufNewFile Dockerfile* setf Dockerfile
