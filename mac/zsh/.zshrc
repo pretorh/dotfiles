@@ -3,6 +3,9 @@ alias ls='ls -G'    # colorized output
 alias bc="bc -l"    # load mathlib with bc (scale to 20)
 alias date=gdate
 
+# git typos
+alias gti="echo -e 'it is git, not gti\n' && git"
+
 HISTFILE=~/.zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
