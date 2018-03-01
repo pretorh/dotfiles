@@ -43,3 +43,6 @@ source ~/.zsh/timing.sh
 # cyan current dir (limit to last 3 levels)
 # reset color, colon, trailing space
 PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[yellow]%}%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then source ~/google-cloud-sdk/path.zsh.inc; fi
