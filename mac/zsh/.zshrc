@@ -2,6 +2,9 @@
 alias ls='ls -G'    # colorized output
 alias bc="bc -l"    # load mathlib with bc (scale to 20)
 alias date=gdate
+# cd up dirs
+alias ..="cd .."
+alias ...="cd ../.."
 
 # git typos
 alias gti="echo -e 'it is git, not gti\n' && git"
