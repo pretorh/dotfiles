@@ -40,6 +40,11 @@ source ~/.zsh/timing.sh
 
 [ -d ~/.nix-profile ] && source ~/.nix-profile/etc/profile.d/nix.sh
 
+# use lighter colors for ls in macos
+if [ $(uname) = "Darwin" ] ; then
+    export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+fi
+
 # prompt
 # red/green exit status
 # yellow host name
