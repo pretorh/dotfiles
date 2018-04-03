@@ -2,6 +2,6 @@ NERD_tree.vim
 nerdtree*
 compiler/
 ftdetect/
-ftplugin/
+/ftplugin/
 indent/
 syntax/
