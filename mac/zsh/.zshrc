@@ -9,6 +9,11 @@ alias ...="cd ../.."
 # git typos
 alias gti="echo -e 'it is git, not gti\n' && git"
 
+# docker
+alias drun="docker run --rm -ti"
+alias dbuild="docker build -t tmp ."
+alias ddangling="docker volume ls -qf dangling=true"
+
 HISTFILE=~/.zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
