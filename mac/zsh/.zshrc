@@ -5,6 +5,7 @@ alias date=gdate
 # cd up dirs
 alias ..="cd .."
 alias ...="cd ../.."
+alias cdg="cd \$(git rev-parse --show-toplevel)"
 
 # git typos
 alias gti="echo -e 'it is git, not gti\n' && git"
