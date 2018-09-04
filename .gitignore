@@ -2,3 +2,4 @@
 *.swo
 .cmp
 .DS_STORE
+arch/zsh/.zsh/histfile
