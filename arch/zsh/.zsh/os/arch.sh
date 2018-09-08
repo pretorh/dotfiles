@@ -8,3 +8,5 @@ bindkey "^[OF" vi-end-of-line          # End
 bindkey '^[[3~' delete-char            # Del
 bindkey "^[[1~" vi-beginning-of-line   # Home in tmux
 bindkey "^[[4~" vi-end-of-line         # End in tmux
+
+alias clip="xclip -selection clipboard"         # alias clip to xlip, write to "normal" clipboard
