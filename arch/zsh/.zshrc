@@ -6,6 +6,8 @@ alias vi="vim"
 alias :q='exit'                         # vim like exit
 alias bc="bc -l"                        # load mathlib with bc (scale to 20)
 
+export EDITOR=vim
+
 # history
 HISTFILE=~/.zsh/histfile
 HISTSIZE=1000
