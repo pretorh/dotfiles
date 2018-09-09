@@ -5,3 +5,5 @@ ftdetect/
 /ftplugin/
 indent/
 syntax/
+
+.netrwhist
