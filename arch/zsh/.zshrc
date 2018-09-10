@@ -8,11 +8,7 @@ source $HOME/.zsh/aliases/git.sh
 
 export EDITOR=vim
 
-# history
-HISTFILE=~/.zsh/histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt HIST_IGNORE_DUPS
+source $HOME/.zsh/history.sh
 
 if (uname -a | grep "Darwin" > /dev/null); then
     isDarwin=1
