@@ -3,6 +3,9 @@ alias ls='ls --color=auto'
 alias vi="vim"
 alias bc="bc -l"                        # load mathlib with bc (scale to 20)
 
+source $HOME/.zsh/aliases/cd.sh
+source $HOME/.zsh/aliases/git.sh
+
 export EDITOR=vim
 
 # history
