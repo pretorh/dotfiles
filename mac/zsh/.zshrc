@@ -1,3 +1,5 @@
+os_type=$(uname| tr '[:upper:]' '[:lower:]')
+
 # alias
 alias ls='ls -G'    # colorized output
 alias bc="bc -l"    # load mathlib with bc (scale to 20)
@@ -50,6 +52,8 @@ source ~/.zsh/timing.sh
 if [ $(uname) = "Darwin" ] ; then
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 fi
+
+source ~/.zsh/keys.$os_type.sh
 
 # prompt
 # red/green exit status
