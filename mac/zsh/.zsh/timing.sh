@@ -2,7 +2,7 @@ function precmd () {
     if [ -z "$TIMER" -o -z "$LAST_CMD" ] ; then
         ELAPSED="----"
     else
-        NOW=$(($(gdate +%s%N)/1000000))
+        NOW=$(($(date +%s%N)/1000000))
         ELAPSED=$((NOW - TIMER));
         if [ $ELAPSED -lt 1000 ] ; then
             ELAPSED=$ELAPSED"ms"
@@ -23,6 +23,6 @@ function precmd () {
 }
 
 function preexec () {
-    TIMER=$(($(gdate +%s%N)/1000000))
+    TIMER=$(($(date +%s%N)/1000000))
     LAST_CMD=$1
 }
