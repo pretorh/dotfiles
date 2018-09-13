@@ -41,6 +41,8 @@ export PERL5LIB="$HOME/perl5/lib/perl5:$PERL5LIB"
 
 [ $isArch ] && source $HOME/.zsh/os/arch.sh
 
+source $HOME/.zsh/keys.$os_type.sh
+
 source $HOME/.zsh/auto-complete.sh
 source $HOME/.zsh/timing.sh
 source $HOME/.zsh/prompt.sh
