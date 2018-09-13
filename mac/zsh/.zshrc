@@ -4,23 +4,16 @@ os_type=$(uname| tr '[:upper:]' '[:lower:]')
 alias ls='ls -G'    # colorized output
 alias bc="bc -l"    # load mathlib with bc (scale to 20)
 alias date=gdate
-# cd up dirs
-alias ..="cd .."
-alias ...="cd ../.."
-alias cdg="cd \$(git rev-parse --show-toplevel)"
 
-# git typos
-alias gti="echo -e 'it is git, not gti\n' && git"
+source $HOME/.zsh/aliases/cd.sh
+source $HOME/.zsh/aliases/git.sh
 
 # docker
 alias drun="docker run --rm -ti"
 alias dbuild="docker build -t tmp ."
 alias ddangling="docker volume ls -qf dangling=true"
 
-HISTFILE=~/.zsh/histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt HIST_IGNORE_DUPS
+source $HOME/.zsh/history.sh
 
 # android
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -30,19 +23,7 @@ export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
 # zsh
-zstyle :compinstall filename '$HOME/.zshrc'
-
-autoload -Uz compinit
-compinit
-
-autoload -U compinit promptinit
-promptinit
-
-zstyle ':completion:*' menu select 'm:{a-z}={A-Z}'
-setopt completealiases
-bindkey -v
-
-autoload -U colors && colors
+source $HOME/.zsh/auto-complete.sh
 
 source ~/.zsh/timing.sh
 
@@ -55,12 +36,7 @@ fi
 
 source ~/.zsh/keys.$os_type.sh
 
-# prompt
-# red/green exit status
-# yellow host name
-# cyan current dir (limit to last 3 levels)
-# reset color, colon, trailing space
-PROMPT="%(?.%{$fg[green]%}.%{$fg[red]%})%? %{$fg[yellow]%}%M %{$fg[cyan]%}%3~ %{$reset_color%}: "
+source $HOME/.zsh/prompt.sh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then source ~/google-cloud-sdk/path.zsh.inc; fi
