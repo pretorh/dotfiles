@@ -1,3 +1,5 @@
+os_type=$(uname| tr '[:upper:]' '[:lower:]')
+
 # alias
 alias ls='ls --color=auto'
 alias vi="vim"
@@ -5,6 +7,7 @@ alias bc="bc -l"                        # load mathlib with bc (scale to 20)
 
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh
+source $HOME/.zsh/aliases/docker.sh
 
 export EDITOR=vim
 
@@ -39,4 +42,5 @@ export PERL5LIB="$HOME/perl5/lib/perl5:$PERL5LIB"
 [ $isArch ] && source $HOME/.zsh/os/arch.sh
 
 source $HOME/.zsh/auto-complete.sh
+source $HOME/.zsh/timing.sh
 source $HOME/.zsh/prompt.sh
