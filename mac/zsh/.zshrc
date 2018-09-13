@@ -7,11 +7,7 @@ alias date=gdate
 
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh
-
-# docker
-alias drun="docker run --rm -ti"
-alias dbuild="docker build -t tmp ."
-alias ddangling="docker volume ls -qf dangling=true"
+source $HOME/.zsh/aliases/docker.sh
 
 source $HOME/.zsh/history.sh
 
