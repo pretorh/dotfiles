@@ -12,6 +12,9 @@ source $HOME/.zsh/aliases/docker.sh
 export EDITOR=vim
 
 source $HOME/.zsh/history.sh
+source $HOME/.zsh/commands/android.$os_type.sh
+source $HOME/.zsh/commands/node.$os_type.sh
+source $HOME/.zsh/commands/perl.$os_type.sh
 
 if (uname -a | grep "Darwin" > /dev/null); then
     isDarwin=1
@@ -19,25 +22,7 @@ elif (uname -a | grep "ARCH" > /dev/null); then
     isArch=1
 fi
 
-# android
-if [ $isDarwin ] ; then
-    export ANDROID_HOME=$HOME/Library/Android/sdk
-else
-    export ANDROID_HOME=/opt/android-sdk
-fi
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
-
-# paths
-export PATH=$PATH:$HOME/node_modules/bin:$HOME/local/bin/:$HOME/node_modules/.bin/
-export PATH="$HOME/perl5/bin:$PATH";
-export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH";
 export PATH="$PATH:$HOME/.local/bin";
-export CHROME_BIN="chromium"
-export PHANTOMJS_BIN="phantomjs"
-
-# perl
-export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:$HOME/perl5";
-export PERL5LIB="$HOME/perl5/lib/perl5:$PERL5LIB"
 
 [ $isArch ] && source $HOME/.zsh/os/arch.sh
 
