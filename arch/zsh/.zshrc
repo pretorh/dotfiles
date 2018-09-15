@@ -13,18 +13,11 @@ export EDITOR=vim
 
 source $HOME/.zsh/history.sh
 source $HOME/.zsh/commands/android.$os_type.sh
+source $HOME/.zsh/commands/clipboard.$os_type.sh
 source $HOME/.zsh/commands/node.$os_type.sh
 source $HOME/.zsh/commands/perl.$os_type.sh
 
-if (uname -a | grep "Darwin" > /dev/null); then
-    isDarwin=1
-elif (uname -a | grep "ARCH" > /dev/null); then
-    isArch=1
-fi
-
 export PATH="$PATH:$HOME/.local/bin";
-
-[ $isArch ] && source $HOME/.zsh/os/arch.sh
 
 source $HOME/.zsh/keys.$os_type.sh
 
