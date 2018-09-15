@@ -1,3 +1,5 @@
+source $HOME/.zsh/debug.sh
+
 os_type=$(uname| tr '[:upper:]' '[:lower:]')
 
 source $HOME/.zsh/aliases/cd.sh
