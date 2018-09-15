@@ -9,12 +9,11 @@ source $HOME/.zsh/aliases/docker.sh
 export EDITOR=vim
 
 source $HOME/.zsh/history.sh
-source $HOME/.zsh/commands/_.all.sh
-source $HOME/.zsh/commands/ls.$os_type.sh
-source $HOME/.zsh/commands/android.$os_type.sh
-source $HOME/.zsh/commands/clipboard.$os_type.sh
-source $HOME/.zsh/commands/node.$os_type.sh
-source $HOME/.zsh/commands/perl.$os_type.sh
+
+for command in $(ls -1 $HOME/.zsh/commands/{*.$os_type.sh,*.all.sh}) ; do
+    _debug_log "sourcing $command"
+    source $command
+done
 
 export PATH="$PATH:$HOME/.local/bin";
 
