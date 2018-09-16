@@ -62,3 +62,4 @@ set incsearch
 autocmd BufRead,BufNewFile Dockerfile* setf Dockerfile
 
 source ~/.vim/plugins.rc
+source ~/.vim/syntastic.rc

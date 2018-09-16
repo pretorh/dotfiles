@@ -8,6 +8,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-"" use: Plug 'name/here'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()

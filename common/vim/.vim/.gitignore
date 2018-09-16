@@ -6,5 +6,6 @@ ftdetect/
 indent/
 syntax/
 /autoload/
+/plugged/
 
 .netrwhist
