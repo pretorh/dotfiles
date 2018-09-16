@@ -21,6 +21,11 @@ set background=dark
 colorscheme koehler
 :highlight Normal ctermbg=black
 
+" tab line colors
+:hi TabLineFill cterm=bold ctermfg=4 ctermbg=7
+:hi TabLine     cterm=bold ctermfg=4 ctermbg=7
+:hi TabLineSel  cterm=bold ctermfg=7 ctermbg=4
+
 " highlight extra whitespace
 :highlight ExtraWhitespace ctermbg=darkred
 :match ExtraWhitespace /\s\+$/
