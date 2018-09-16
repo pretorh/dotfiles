@@ -60,3 +60,5 @@ set incsearch
 
 " detect all files that start with Dockerfile as dockerfiles
 autocmd BufRead,BufNewFile Dockerfile* setf Dockerfile
+
+source ~/.vim/plugins.rc
