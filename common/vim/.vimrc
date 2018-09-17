@@ -66,5 +66,16 @@ set incsearch
 " detect all files that start with Dockerfile as dockerfiles
 autocmd BufRead,BufNewFile Dockerfile* setf Dockerfile
 
+" loop {c,l}{next,prev}
+" https://vi.stackexchange.com/a/8535
+command! Cnext try | cnext | catch | cfirst | catch | endtry
+command! Cprev try | cprev | catch | clast | catch | endtry
+command! Lnext try | lnext | catch | lfirst | catch | endtry
+command! Lprev try | lprev | catch | llast | catch | endtry
+cabbrev cnext Cnext
+cabbrev cprev CPrev
+cabbrev lnext Lnext
+cabbrev lprev Lprev
+
 source ~/.vim/plugins.rc
 source ~/.vim/syntastic.rc
