@@ -1,8 +1,9 @@
+source $HOME/.zsh/debug.sh
+
 os_type=$(uname| tr '[:upper:]' '[:lower:]')
 
 # alias
 alias ls='ls -G'    # colorized output
-alias bc="bc -l"    # load mathlib with bc (scale to 20)
 alias date=gdate
 
 source $HOME/.zsh/aliases/cd.sh
@@ -10,6 +11,11 @@ source $HOME/.zsh/aliases/git.sh
 source $HOME/.zsh/aliases/docker.sh
 
 source $HOME/.zsh/history.sh
+
+for command in $(ls -1 $HOME/.zsh/commands/{*.$os_type.sh,*.all.sh}) ; do
+    _debug_log "sourcing $command"
+    source $command
+done
 
 # android
 export ANDROID_HOME=$HOME/Library/Android/sdk
