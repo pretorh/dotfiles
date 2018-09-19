@@ -13,19 +13,13 @@ for command in $(ls -1 $HOME/.zsh/commands/{*.$os_type.sh,*.all.sh}) ; do
     source $command
 done
 
-# paths
-export PATH="/usr/local/bin:$PATH"
+source $HOME/.zsh/paths.sh
 
 # zsh
 source $HOME/.zsh/auto-complete.sh
 
 source ~/.zsh/timing.sh
 
-[ -d ~/.nix-profile ] && source ~/.nix-profile/etc/profile.d/nix.sh
-
 source ~/.zsh/keys.$os_type.sh
 
 source $HOME/.zsh/prompt.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then source ~/google-cloud-sdk/path.zsh.inc; fi
