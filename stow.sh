@@ -1,15 +1,21 @@
+#!/usr/bin/env bash
+
 set -e
 
-which stow > /dev/null || (echo "GNU stow is not installed" && exit 1)
+command -v stow > /dev/null || (echo "GNU stow is not installed" && exit 1)
 
 mkdir -pv ~/.gnupg
 mkdir -pv ~/.zsh
 
 function install_in_dir() {
-    stow --dir $1 --target ~ --verbose --ignore '\.swp$' `ls $1`
+    pushd "$1" >/dev/null
+    for name in * ; do
+        stow --target ~ --verbose --ignore '\.swp$' "$name"
+    done
+    popd >/dev/null
 }
 
 install_in_dir common
-if [ ! -z $1 ] ; then
-    install_in_dir $1
+if [ ! -z "$1" ] ; then
+    install_in_dir "$1"
 fi
