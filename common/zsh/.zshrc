@@ -1,6 +1,7 @@
 source $HOME/.zsh/debug.sh
 
-os_type=$(uname| tr '[:upper:]' '[:lower:]')
+os_type=$(uname | tr '[:upper:]' '[:lower:]')
+_debug_log "zsh setup for $os_type"
 
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh

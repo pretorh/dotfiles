@@ -9,3 +9,6 @@ let g:syntastic_check_on_wq = 0
 
 " use smaller location error list window
 let g:syntastic_loc_list_height = 3
+
+" add -x option to shellcheck to follow source files
+let g:syntastic_sh_shellcheck_args = "-x"
