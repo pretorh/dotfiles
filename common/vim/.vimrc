@@ -47,8 +47,9 @@ nmap <C-B> :tabe<CR>:q<CR>:make -k all<CR>
 " F6 = next build output details
 nmap <F6> :cn<CR>
 
-" in normal mode, fold current {...} block using <F9>
-nnoremap <F9> zfa{
+" code folding
+set foldmethod=syntax
+set foldlevel=2
 
 " set backspace (https://stackoverflow.com/a/11560415/1016377)
 :set backspace=indent,eol,start
