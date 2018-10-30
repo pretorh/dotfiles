@@ -11,10 +11,10 @@ fi
 
 source=`pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/"`
 if [ "$source" == "Battery" ] ; then
-    source_icon="🔋 ";
+    source_icon="b ";
     remain_suffix="remain";
 elif [ "$source" == "AC" ] ; then
-    source_icon="⚡ ";
+    source_icon="p ";
     remain_suffix="till full";
 fi
 
