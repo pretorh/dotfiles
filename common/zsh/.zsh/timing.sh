@@ -1,5 +1,5 @@
-function precmd () {
-    if [ -z "$TIMER" -o -z "$LAST_CMD" ] ; then
+precmd () {
+    if [ -z "$TIMER" ] || [ -z "$LAST_CMD" ] ; then
         ELAPSED="----"
     else
         NOW=$(($(date +%s%N)/1000000))
@@ -7,13 +7,13 @@ function precmd () {
         if [ $ELAPSED -lt 1000 ] ; then
             ELAPSED=$ELAPSED"ms"
         else
-            SEC=`echo "scale=2; $ELAPSED/1000.0" | bc`
+            SEC=$(echo "scale=2; $ELAPSED/1000.0" | bc)
             if [ $ELAPSED -gt 60000 ] ; then
-                MIN=`echo "scale=0; $ELAPSED/60000" | bc`
-                SEC=`echo "scale=2; $SEC-$MIN*60" | bc`
-                ELAPSED=$MIN"min "$SEC"sec"
+                MIN=$(echo "scale=0; $ELAPSED/60000" | bc)
+                SEC=$(echo "scale=2; $SEC-$MIN*60" | bc)
+                ELAPSED="$MIN""min ""$SEC""sec"
             else
-                ELAPSED=$SEC"sec"
+                ELAPSED="$SEC""sec"
             fi
         fi
     fi
@@ -22,7 +22,7 @@ function precmd () {
     LAST_CMD=
 }
 
-function preexec () {
+preexec () {
     TIMER=$(($(date +%s%N)/1000000))
     LAST_CMD=$1
 }
