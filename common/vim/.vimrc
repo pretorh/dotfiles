@@ -79,7 +79,10 @@ cabbrev lnext Lnext
 cabbrev lprev Lprev
 
 source ~/.vim/plugins.vim
+" plugin setup
 source ~/.vim/syntastic.vim
+" ag (using ack.vim)
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " set file types
 autocmd BufNewFile,BufRead *.ts :set filetype=typescript

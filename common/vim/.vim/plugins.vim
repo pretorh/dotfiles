@@ -12,5 +12,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
