@@ -79,7 +79,9 @@ cabbrev lnext Lnext
 cabbrev lprev Lprev
 
 source ~/.vim/plugins.vim
+" plugin setup
 source ~/.vim/syntastic.vim
+source ~/.vim/ack-ag.vim
 
 " set file types
 autocmd BufNewFile,BufRead *.ts :set filetype=typescript
