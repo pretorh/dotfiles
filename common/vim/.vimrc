@@ -56,6 +56,8 @@ set foldlevel=2
 
 " bind F2 to toggle and mirror nerd tree
 map <F2> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+" bind ctrl-J to pretty print as json
+map <C-J> :%!python -m json.tool<CR>
 
 " search highlighting
 :hi Search ctermfg=0 ctermbg=3
