@@ -12,3 +12,7 @@ let g:syntastic_loc_list_height = 3
 
 " add -x option to shellcheck to follow source files
 let g:syntastic_sh_shellcheck_args = "-x"
+
+" python
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_pylint_args = '--disable=C0111'
