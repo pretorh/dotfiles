@@ -1,3 +1,6 @@
-echo "#H |" \
-     `~/.tmux/status/battery.sh` \
-     `date "+%Y-%m-%d %H:%M:%S"`
+#!/usr/bin/env sh
+
+battery=$(~/.tmux/status/battery.sh)
+now=$(date "+%Y-%m-%d %H:%M:%S")
+
+echo "#H | $battery $now"
