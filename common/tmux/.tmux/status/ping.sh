@@ -2,12 +2,19 @@
 
 ping_address=1.1.1.1
 
-timeout_param='-w'
-if [ "$(uname)" = 'Darwin' ] ; then
-    timeout_param='-t'
+if kill -0 "$(cat ~/.tmux/.log/ping.pid)" ; then
+    # consider the last 3 requests
+    # anyone that has a sequence number (passed)
+    # else we are offline
+    # get the latest time of the 1 to 3 lines
+    # get the msec
+    (tail -n 3 ~/.tmux/.log/ping.log | grep icmp_seq || echo "offline") \
+        | tail -n 1 \
+        | sed 's|.*time=\(.*\)$|\1|'
+else
+    echo "starting"
+
+    mkdir -p ~/.tmux/.log/
+    ping $ping_address > ~/.tmux/.log/ping.log 2>&1  &
+    echo "$!" > ~/.tmux/.log/ping.pid
 fi
-
-ping_time=$(ping $ping_address -c 1 $timeout_param 1 | grep icmp_seq || echo "offline")
-ping_msec=$(echo "$ping_time" | sed 's|.*time=\(.*\)$|\1|')
-
-echo "$ping_msec"
