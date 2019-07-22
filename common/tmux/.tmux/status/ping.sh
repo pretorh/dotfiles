@@ -10,7 +10,7 @@ if kill -0 "$(cat $pid_file)" ; then
     # else we are offline
     # get the latest time of the 1 to 3 lines
     # get the msec
-    (tail -n 3 $log_file | grep icmp_seq || echo "offline") \
+    (tail -n 3 $log_file | grep icmp_seq | grep -v timeout || echo "offline") \
         | tail -n 1 \
         | sed 's|.*time=\(.*\)$|\1|'
 else
