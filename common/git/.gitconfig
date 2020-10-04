@@ -2,6 +2,7 @@
     default = simple
 [pull]
     default = current
+    ff = only
 [merge]
     tool = vimdiff
 [alias]
