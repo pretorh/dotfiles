@@ -14,5 +14,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
 Plug 'mileszs/ack.vim'
 Plug 'udalov/kotlin-vim'
+Plug 'ianks/vim-tsx'
 
 call plug#end()
