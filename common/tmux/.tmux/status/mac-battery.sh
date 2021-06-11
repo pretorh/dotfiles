@@ -5,6 +5,8 @@ perc=`pmset -g batt | grep % | awk -F ';' '{print $1}' | awk -F ' ' '{print $3}'
 remain=`pmset -g batt | grep % | perl -pe "s/^.*\((no estimate)\).*$/\1/"`
 if [ "$remain" == "no estimate" ] ; then
     remain='no est'
+elif [ pmset -g batt | grep "not charging" ] ; then
+    remain='not charging'
 else
     remain=`pmset -g batt | grep % | perl -pe "s/^.*(\d:\d\d) remaining.*$/\1/"`
 fi
