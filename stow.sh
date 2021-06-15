@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -e
 
 command -v stow > /dev/null || (echo "GNU stow is not installed" && exit 1)
@@ -16,6 +15,6 @@ function install_in_dir() {
 }
 
 install_in_dir common
-if [ ! -z "$1" ] ; then
+if [ -n "$1" ] ; then
     install_in_dir "$1"
 fi
