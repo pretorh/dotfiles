@@ -7,14 +7,14 @@ mkdir -pv ~/.gnupg
 mkdir -pv ~/.zsh
 
 function install_in_dir() {
-    pushd "$1" >/dev/null
-    for name in * ; do
-        stow --target ~ --verbose --ignore '\.swp$' "$name"
-    done
-    popd >/dev/null
+  dird="$(dirname "$1")"
+  name="$(basename "$1")"
+
+  pushd "$dird" >/dev/null
+  stow --target ~ --verbose --ignore '\.swp$' "$name"
+  popd >/dev/null
 }
 
-install_in_dir common
-if [ -n "$1" ] ; then
-    install_in_dir "$1"
-fi
+for p in "$@" ; do
+  install_in_dir "$p"
+done

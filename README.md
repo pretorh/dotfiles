@@ -2,7 +2,7 @@
 
 ## installations
 
-use the `install.sh` script to install
+use the `install.sh` script to install, passing the relative path for the item to install (ex `./install.sh common/ssh`) or `common/*` for all in `common`
 
 ### sensitive or runtime data
 
