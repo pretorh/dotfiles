@@ -6,9 +6,6 @@ command -v stow > /dev/null || (echo "GNU stow is not installed" && exit 1)
 dest="$(realpath "${DESTDIR:=$HOME}")"
 echo "installing into $dest"
 
-mkdir -pv ~/.gnupg
-mkdir -pv ~/.zsh
-
 hook() {
   hook="$1"
   [ ! -x "$name/$hook.sh" ] && return
