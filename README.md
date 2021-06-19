@@ -4,6 +4,8 @@
 
 use the `install.sh` script to install, passing the relative path for the item to install (ex `./install.sh common/ssh`) or `common/*` for all in `common`
 
+the `DESTDIR` envvar can be used to set the destination (defaults to `$HOME`)
+
 ### sensitive or runtime data
 
 files which should not be tracked in the repo, and preferably not even symlinked into the working dir
