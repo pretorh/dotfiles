@@ -2,7 +2,7 @@
 
 ## installations
 
-use the `stow.sh` script to install
+use the `install.sh` script to install
 
 ### sensitive or runtime data
 
