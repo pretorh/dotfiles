@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-command -v stow > /dev/null || (echo "GNU stow is not installed" && exit 1)
+command -v stow > /dev/null || (echo -e "\033[1;31mError\033[0m: GNU stow is not installed" >&2 && exit 1)
 
 dest="$(realpath "${DESTDIR:=$HOME}")"
 echo "installing into $dest"
