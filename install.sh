@@ -9,6 +9,14 @@ echo "installing into $dest"
 mkdir -pv ~/.gnupg
 mkdir -pv ~/.zsh
 
+hook() {
+  hook="$1"
+  [ ! -x "$name/$hook.sh" ] && return
+
+  echo "$name: $hook"
+  "$name/$hook.sh" "$dest"
+}
+
 install_in_dir() {
   dird="$(dirname "$1")"
   name="$(basename "$1")"
@@ -16,7 +24,12 @@ install_in_dir() {
   echo "$name ..."
   trap 'echo -e "$name \033[1;31m☓ failed\033[0m"' ERR
   pushd "$dird" >/dev/null
-  stow --target "$dest" --verbose --ignore '\.swp$' "$name"
+  hook "pre-install"
+  stow --target "$dest" --verbose \
+    --ignore '\.swp$' \
+    --ignore '^(pre|post)-install.sh$' \
+    "$name"
+  hook "post-install"
   popd >/dev/null
   trap - ERR
   echo -e "$name \033[1;32m✓\033[0m"
