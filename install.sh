@@ -3,7 +3,11 @@ set -e
 
 command -v stow > /dev/null || (echo -e "\033[1;31mError\033[0m: GNU stow is not installed" >&2 && exit 1)
 
-dest="$(realpath "${DESTDIR:=$HOME}")"
+get_absolute_path() {
+  realpath "$1" 2>/dev/null || { cd "$1" ; pwd ; }
+}
+
+dest="$(get_absolute_path "${DESTDIR:=$HOME}")"
 echo "installing into $dest"
 
 hook() {
