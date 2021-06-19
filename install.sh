@@ -9,13 +9,17 @@ echo "installing into $dest"
 mkdir -pv ~/.gnupg
 mkdir -pv ~/.zsh
 
-function install_in_dir() {
+install_in_dir() {
   dird="$(dirname "$1")"
   name="$(basename "$1")"
 
+  echo "$name ..."
+  trap 'echo -e "$name \033[1;31m☓ failed\033[0m"' ERR
   pushd "$dird" >/dev/null
   stow --target "$dest" --verbose --ignore '\.swp$' "$name"
   popd >/dev/null
+  trap - ERR
+  echo -e "$name \033[1;32m✓\033[0m"
 }
 
 for p in "$@" ; do
