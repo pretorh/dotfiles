@@ -12,11 +12,15 @@ if ! date +%s%N | grep -v "N" >/dev/null ; then
 fi
 
 precmd () {
+    success_color="green"
+
     if [ "$ZSHRC_TIMING_NA" = 1 ] ; then
         ELAPSED="N/A"
+        success_color="yellow"
     elif [ -z "$TIMER" ] || [ -z "$LAST_CMD" ] ; then
         # no timer set, or no last command (likely a new prompt)
         ELAPSED="----"
+        success_color="yellow"
     else
         NOW=$(($(date +%s%N)/1000000))
         ELAPSED=$((NOW - TIMER));
@@ -39,7 +43,7 @@ precmd () {
 
     # [ green for success | red + frown for error ] [ elapsed time ]
     # shellcheck disable=SC2034,1087,2154
-    RPROMPT="%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${ELAPSED} %{$reset_color%}"
+    RPROMPT="%(?.%{$fg[$success_color]%}.%{$fg[red]%}:/ )% ${ELAPSED} %{$reset_color%}"
     LAST_CMD=
 }
 
