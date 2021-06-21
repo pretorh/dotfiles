@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
 # get nano second current time (https://stackoverflow.com/a/16548827/1016377)
 # before execute (http://zsh.sourceforge.net/Doc/Release/Functions.html) and again
 # before prompt. show the difference in the right prompt
@@ -28,6 +31,7 @@ precmd () {
     fi
 
     # [ green for success | red + frown for error ] [ elapsed time ]
+    # shellcheck disable=SC2034,1087,2154
     RPROMPT="%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${ELAPSED} %{$reset_color%}"
     LAST_CMD=
 }
