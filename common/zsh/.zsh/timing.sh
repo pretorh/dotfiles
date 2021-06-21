@@ -6,8 +6,15 @@
 # before prompt. show the difference in the right prompt
 # based on (for bash) http://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
 
+if ! date +%s%N | grep -v "N" >/dev/null ; then
+  echo -e "\033[1;33m.zshrc:\033[0m timing is not available" >&2
+  ZSHRC_TIMING_NA=1
+fi
+
 precmd () {
-    if [ -z "$TIMER" ] || [ -z "$LAST_CMD" ] ; then
+    if [ "$ZSHRC_TIMING_NA" = 1 ] ; then
+        ELAPSED="N/A"
+    elif [ -z "$TIMER" ] || [ -z "$LAST_CMD" ] ; then
         # no timer set, or no last command (likely a new prompt)
         ELAPSED="----"
     else
@@ -37,6 +44,8 @@ precmd () {
 }
 
 preexec () {
+  if [ -z "$ZSHRC_TIMING_NA" ] ; then
     TIMER=$(($(date +%s%N)/1000000))
     LAST_CMD=$1
+  fi
 }
