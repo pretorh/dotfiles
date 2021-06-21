@@ -1,5 +1,8 @@
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
 # history
-HISTFILE=~/.zsh/histfile
+HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
