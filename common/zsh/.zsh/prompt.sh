@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # prompt
 # red/green exit status
 # yellow host name [prefixed with SSH if ssh session]
