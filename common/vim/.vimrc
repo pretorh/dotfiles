@@ -50,6 +50,7 @@ nmap <F6> :cn<CR>
 " code folding
 set foldmethod=indent
 set foldlevel=2
+set foldcolumn=2
 
 " set backspace (https://stackoverflow.com/a/11560415/1016377)
 :set backspace=indent,eol,start
