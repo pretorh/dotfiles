@@ -30,6 +30,9 @@ colorscheme koehler
 :highlight ExtraWhitespace ctermbg=darkred
 :match ExtraWhitespace /\s\+$/
 
+" show commands in right corner
+set showcmd
+
 " matching paren color
 highlight MatchParen cterm=bold ctermfg=cyan ctermbg=darkgrey
 
