@@ -12,3 +12,13 @@ let g:ale_list_window_size = 2
 " ctrl+[ or ] for previous/next errors
 nmap <silent> <C-[> <Plug>(ale_previous_wrap)
 nmap <silent> <C-]> <Plug>(ale_next_wrap)
+
+" info
+nnoremap <leader>lr <Plug>(ale_find_references)
+nnoremap <S-K> <Plug>(ale_hover)
+
+" navigation
+nnoremap <leader>gd <Plug>(ale_go_to_definition_in_tab)
+
+" actions
+nnoremap <leader>rr <Plug>(ale_rename)
