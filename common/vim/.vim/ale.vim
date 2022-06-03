@@ -9,6 +9,10 @@ let g:ale_echo_msg_format = '%s [%linter% %code%]'
 let g:ale_open_list = 1
 let g:ale_list_window_size = 2
 
+" hover in floating window, utf-char borders
+let g:ale_hover_to_floating_preview=1
+let g:ale_floating_window_border=['│', '─', '╭', '╮', '╯', '╰', '│', '─']
+
 " ctrl+[ or ] for previous/next errors
 nmap <silent> <C-[> <Plug>(ale_previous_wrap)
 nmap <silent> <C-]> <Plug>(ale_next_wrap)
