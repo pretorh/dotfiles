@@ -26,3 +26,4 @@ nnoremap <leader>gd <Plug>(ale_go_to_definition_in_tab)
 
 " actions
 nnoremap <leader>rr <Plug>(ale_rename)
+noremap <leader>rt :ALECodeAction<CR>
