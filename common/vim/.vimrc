@@ -21,6 +21,10 @@ set background=dark
 colorscheme koehler
 :highlight Normal ctermbg=black
 
+" error/warning highlights
+highlight SpellCap cterm=none ctermbg=Red ctermfg=white
+highlight SpellBad cterm=bold ctermbg=DarkRed ctermfg=white
+
 " tab line colors
 :hi TabLineFill cterm=bold ctermfg=4 ctermbg=7
 :hi TabLine     cterm=bold ctermfg=4 ctermbg=7
