@@ -1,0 +1,14 @@
+let g:ale_sign_column_always = 0 " already have fold column, so displaying something already
+let g:airline#extensions#ale#enabled = 1
+
+" error formar: "message string here [linter name code]"
+let g:ale_echo_msg_format = '%s [%linter% %code%]'
+
+" highlight uses SpellBad (ALEError) and SpellCap (ALEWarnings)
+" open list on errors, set height
+let g:ale_open_list = 1
+let g:ale_list_window_size = 2
+
+" ctrl+[ or ] for previous/next errors
+nmap <silent> <C-[> <Plug>(ale_previous_wrap)
+nmap <silent> <C-]> <Plug>(ale_next_wrap)

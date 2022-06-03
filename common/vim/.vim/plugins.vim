@@ -15,5 +15,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mileszs/ack.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'ianks/vim-tsx'
+let g:ale_completion_enabled = 1    " set before ALE is loaded
+Plug 'dense-analysis/ale'
 
 call plug#end()
