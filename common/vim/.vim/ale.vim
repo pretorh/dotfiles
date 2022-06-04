@@ -13,9 +13,8 @@ let g:ale_list_window_size = 2
 let g:ale_hover_to_floating_preview=1
 let g:ale_floating_window_border=['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 
-" ctrl+[ or ] for previous/next errors
-nmap <silent> <C-[> <Plug>(ale_previous_wrap)
-nmap <silent> <C-]> <Plug>(ale_next_wrap)
+" ge to Go next Error next errors
+nmap <silent> ge <Plug>(ale_next_wrap)
 
 " info
 nnoremap <leader>lr <Plug>(ale_find_references)
