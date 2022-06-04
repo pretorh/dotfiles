@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'mileszs/ack.vim'
 Plug 'udalov/kotlin-vim'
+Plug 'tpope/vim-surround'
 let g:ale_completion_enabled = 1    " set before ALE is loaded
 Plug 'dense-analysis/ale'
 
