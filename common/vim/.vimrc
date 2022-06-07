@@ -62,8 +62,6 @@ set foldcolumn=2
 " set backspace (https://stackoverflow.com/a/11560415/1016377)
 :set backspace=indent,eol,start
 
-" bind F2 to toggle and mirror nerd tree
-map <F2> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 " bind ctrl-J to pretty print as json
 map <C-J> :%!python -m json.tool<CR>
 
@@ -93,6 +91,7 @@ source ~/.vim/plugins.vim
 source ~/.vim/syntastic.vim
 source ~/.vim/ack-ag.vim
 source ~/.vim/ale.vim
+source ~/.vim/nerdtree.vim
 
 " set file types
 autocmd BufNewFile,BufRead *.ts :set filetype=typescript
