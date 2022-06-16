@@ -29,5 +29,7 @@ function ToggleNERDTreeOnFindFile()
     endif
 endfunction
 
+let NERDTreeShowHidden = 1
+
 map <F2> :call ToggleNERDTreeOnFindFile()<CR>
 map <leader>ff :NERDTreeFind<CR>
