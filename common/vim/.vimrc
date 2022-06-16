@@ -88,6 +88,7 @@ cabbrev lprev Lprev
 
 source ~/.vim/plugins.vim
 " plugin setup
+source ~/.vim/airline.vim
 source ~/.vim/ack-ag.vim
 source ~/.vim/ale.vim
 source ~/.vim/nerdtree.vim

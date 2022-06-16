@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'tpope/vim-surround'
