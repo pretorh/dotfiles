@@ -86,6 +86,18 @@ cabbrev cprev CPrev
 cabbrev lnext Lnext
 cabbrev lprev Lprev
 
+function s:OpenFileAtLastLocation()
+  " from https://github.com/thoughtbot/dotfiles/blob/master/vimrc#L39
+  if &filetype == 'gitcommit'
+    " not for git commit messages
+  elseif line("'\"") < 0 || line("'\"") > line("$")
+    " not when position is invalid
+  else
+    exe "normal g`\""
+  endif
+endfunction
+autocmd BufReadPost * call s:OpenFileAtLastLocation()
+
 source ~/.vim/plugins.vim
 " plugin setup
 source ~/.vim/airline.vim
