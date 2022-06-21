@@ -88,7 +88,8 @@ cabbrev lprev Lprev
 
 function s:OpenFileAtLastLocation()
   " from https://github.com/thoughtbot/dotfiles/blob/master/vimrc#L39
-  if &filetype == 'gitcommit'
+  if &filetype == 'gitcommit' || bufname("%")[len(bufname("%"))-19:] == '.git/COMMIT_EDITMSG'
+    " filetype is (sometimes?) empty here, so also check the filename
     " not for git commit messages
   elseif line("'\"") < 0 || line("'\"") > line("$")
     " not when position is invalid
