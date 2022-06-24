@@ -9,6 +9,7 @@ set expandtab
 " line numbers
 set number
 set numberwidth=3
+set updatetime=250
 
 " column marker on right
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -86,6 +87,9 @@ cabbrev cprev CPrev
 cabbrev lnext Lnext
 cabbrev lprev Lprev
 
+" lingering finger on shift when :qa
+cabbrev Qa echoe 'you probably meant :qa?' \| sleep 400m \| qa
+
 function s:OpenFileAtLastLocation()
   " from https://github.com/thoughtbot/dotfiles/blob/master/vimrc#L39
   if &filetype == 'gitcommit' || bufname("%")[len(bufname("%"))-19:] == '.git/COMMIT_EDITMSG'
@@ -105,6 +109,8 @@ source ~/.vim/airline.vim
 source ~/.vim/ack-ag.vim
 source ~/.vim/ale.vim
 source ~/.vim/nerdtree.vim
+source ~/.vim/ctrlp.vim
+source ~/.vim/signify.vim
 
 " set file types
 autocmd BufNewFile,BufRead *.ts :set filetype=typescript

@@ -14,6 +14,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mhinz/vim-signify'
 let g:ale_completion_enabled = 1    " set before ALE is loaded
 Plug 'dense-analysis/ale'
 
