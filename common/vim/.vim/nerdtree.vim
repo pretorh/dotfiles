@@ -13,6 +13,7 @@ function NERDTreeAutoMirror()
     " skip the first buffer: it i setup via VimEnter (or skipped and should be
     " skipped here also)
     if winnr('$') == 1 && tabpagenr('$') > 1 && !exists('b:NERDTree') && filereadable(expand('%@'))
+        :NERDTree   " ensure started
         silent :NERDTreeMirror
         :wincmd p
     endif
