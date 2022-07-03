@@ -1,5 +1,7 @@
-b=`dirname $0`
+#!/usr/bin/env sh
 
-if [ `uname` = 'Darwin' ] ; then
-    $b/mac-battery.sh
+b=$(dirname "$0")
+
+if [ "$(uname)" = 'Darwin' ] ; then
+  "$b"/mac-battery.sh
 fi
