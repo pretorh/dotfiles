@@ -45,4 +45,4 @@ if [ ${#remain} -gt 6 ] ; then
     remain='?'
 fi
 
-echo "$source_icon $perc $remain_part |"
+echo "$source_icon $perc $remain_part"
