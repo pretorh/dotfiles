@@ -3,6 +3,7 @@
 ping_address=1.1.1.1
 pid_file=~/.tmux/.log/ping.pid
 log_file=~/.tmux/.log/ping.log
+delay=10
 
 if kill -0 "$(cat $pid_file)" ; then
     # consider the last 3 requests
@@ -17,6 +18,7 @@ else
     echo "starting"
 
     mkdir -p ~/.tmux/.log/
-    ping $ping_address > $log_file 2>&1  &
+    rm $log_file
+    ping -i $delay $ping_address > $log_file 2>&1  &
     echo "$!" > $pid_file
 fi
