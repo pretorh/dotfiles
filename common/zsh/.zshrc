@@ -3,6 +3,8 @@ source $HOME/.zsh/debug.sh
 os_type=$(uname | tr '[:upper:]' '[:lower:]')
 _debug_log "zsh setup for $os_type"
 
+autoload -U colors && colors
+
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh
 source $HOME/.zsh/aliases/docker.sh

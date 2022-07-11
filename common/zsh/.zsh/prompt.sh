@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+autoload -U promptinit && promptinit
+
 # red/green exit status
 _prompt_exit_status="%(?.%{$fg[green]%}.%{$fg[red]%})%?"
 
