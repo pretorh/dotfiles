@@ -11,7 +11,7 @@ if ! date +%s%N | grep -v "N" >/dev/null ; then
   ZSHRC_TIMING_NA=1
 fi
 
-precmd () {
+calculate_command_timing() {
     success_color="green"
 
     if [ "$ZSHRC_TIMING_NA" = 1 ] ; then
@@ -47,9 +47,12 @@ precmd () {
     LAST_CMD=
 }
 
-preexec () {
+start_command_timing() {
   if [ -z "$ZSHRC_TIMING_NA" ] ; then
     TIMER=$(($(date +%s%N)/1000000))
     LAST_CMD=$1
   fi
 }
+
+preexec_functions+=( start_command_timing )
+precmd_functions+=( calculate_command_timing )
