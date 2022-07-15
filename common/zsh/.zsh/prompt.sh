@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 autoload -U promptinit && promptinit
+setopt prompt_subst
 
 # red/green exit status
 _prompt_exit_status="%(?.%{$fg[green]%}.%{$fg[red]%})%?"
@@ -19,3 +20,6 @@ _prompt_char=" : "
 
 # combine
 PROMPT="$_prompt_exit_status $_prompt_host $_prompt_pwd%{$reset_color%}$_prompt_char"
+
+# shellcheck disable=SC2034,1087,2154,SC2016
+RPROMPT='%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${last_command_time}%{$reset_color%}'
