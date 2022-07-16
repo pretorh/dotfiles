@@ -3,20 +3,31 @@
 autoload -U promptinit && promptinit
 setopt prompt_subst
 
-# red/green exit status
-_prompt_exit_status="%(?.%{$fg[green]%}.%{$fg[red]%})%?"
+_prompt_exit_status() {
+    # red/green exit status
+    echo "%(?.%{$fg[green]%}.%{$fg[red]%})%?"
+}
 
-# yellow host name [prefixed with SSH if ssh session]
-_prompt_host="%{$fg[yellow]%}%M"
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    _prompt_host="%{$fg[blue]%}[SSH] $_prompt_host"
-fi
+_prompt_host() {
+    # yellow host name
+    local host="%{$fg[yellow]%}%M"
 
-# cyan current dir (limit to last 3 levels)
-_prompt_pwd="%{$fg[cyan]%}%3~"
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        # prefixed with SSH if ssh session
+        echo "%{$fg[blue]%}[SSH:] $host"
+    else
+        echo "$host"
+    fi
+}
 
-# colon, trailing space
-_prompt_char=" : "
+_prompt_pwd() {
+    # cyan current dir (limit to last 3 levels)
+    echo "%{$fg[cyan]%}%3~"
+}
+
+_prompt_input() {
+    echo "%F{white}:%f"
+}
 
 _prompt_shell_level() {
     if [ -z $TMUX ] && [ $SHLVL -gt 1 ] ; then
@@ -29,8 +40,12 @@ _prompt_shell_level() {
     fi
 }
 
-# combine
-PROMPT="$_prompt_exit_status $(_prompt_shell_level)$_prompt_host $_prompt_pwd%{$reset_color%}$_prompt_char"
+_prompt_last_command_time() {
+    # shellcheck disable=SC2016
+    echo '%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${last_command_time}'
+}
 
-# shellcheck disable=SC2034,1087,2154,SC2016
-RPROMPT='%(?.%{$fg[green]%}.%{$fg[red]%}:/ )% ${last_command_time}%{$reset_color%}'
+# combine
+PROMPT="$(_prompt_exit_status) $(_prompt_shell_level)$(_prompt_host) $(_prompt_pwd) $(_prompt_input)%{$reset_color%} "
+
+RPROMPT="$(_prompt_last_command_time)%{$reset_color%}"
