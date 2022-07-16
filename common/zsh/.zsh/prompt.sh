@@ -14,7 +14,7 @@ _prompt_host() {
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
         # prefixed with SSH if ssh session
-        echo "%{$fg[blue]%}[SSH:] $host"
+        echo "%F{white}%n%F{cyan}@%f$host"
     else
         echo "$host"
     fi
