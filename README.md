@@ -16,3 +16,7 @@ files which should not be tracked in the repo, and preferably not even symlinked
 - `tmux` temp files (todo: move write this into `/tmp`)
 - `vim`: run time data for `plugged`, various history files
 - `zsh`: history file
+
+## references/links
+
+- [256 colors](https://www.ditig.com/256-colors-cheat-sheet)
