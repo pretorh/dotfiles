@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source ~/.zsh/vi-mode.sh && detect_vi_mode
+
 autoload -U promptinit && promptinit
 setopt prompt_subst
 
@@ -33,6 +35,18 @@ _prompt_host_if_remote() {
 _prompt_pwd() {
     # cyan current dir (limit to last 3 levels)
     echo "%{$fg[cyan]%}%3~"
+}
+
+_prompt_vi_mode() {
+    # colors to match jellybean vim airline theme
+    local cmd_color=25      # DeepSkyBlue4
+    local ins_color=22      # DarkGreen
+    # compact mode indicators. can use ' CMD ' (with spaces) for more verbose
+    local cmd_text='cmd'
+    local ins_text='ins'
+
+    # bold white text in mode-determined background color
+    echo "%B%F{white}%K$(zsh_vi_mode_ternary "{$cmd_color}$cmd_text" "{$ins_color}$ins_text")%k%f%b"
 }
 
 _prompt_input() {
@@ -75,6 +89,6 @@ _prompt_exit_and_command_time() {
 
 # combine
 # single quotes, to eval when expanded (else calculated once)
-PROMPT='$(_prompt_exit_char) $(_prompt_shell_level)$(_prompt_host_if_remote)$(_prompt_pwd) $(_prompt_input)%{$reset_color%} '
+PROMPT='$(_prompt_exit_char) $(_prompt_shell_level)$(_prompt_host_if_remote)$(_prompt_pwd) $(_prompt_vi_mode)$(_prompt_input)%{$reset_color%} '
 
 RPROMPT='$(_prompt_exit_and_command_time)%{$reset_color%}'
