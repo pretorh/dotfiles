@@ -32,6 +32,27 @@ _prompt_host_if_remote() {
     fi
 }
 
+_prompt_git_dir() {
+    # this requires realpath with --relative-to support
+    local git_root_dir
+    if git_root_dir=$(git rev-parse --show-toplevel) 2>/dev/null ; then
+        local git_parent_dir=$(basename "$git_root_dir")
+        local dir_in_repo=$(realpath --relative-to "$git_root_dir" .)
+        echo "%F{white}λ:%F{yellow}$git_parent_dir %F{cyan}$dir_in_repo"
+        return 0
+    fi
+
+    return 1
+}
+
+_prompt_dir_git_or_pwd() {
+    if git_dir_info=$(_prompt_git_dir) ; then
+        echo "$git_dir_info"
+    else
+        echo "$(_prompt_pwd)"
+    fi
+}
+
 _prompt_pwd() {
     # cyan current dir (limit to last 3 levels)
     echo "%{$fg[cyan]%}%3~"
@@ -89,6 +110,6 @@ _prompt_exit_and_command_time() {
 
 # combine
 # single quotes, to eval when expanded (else calculated once)
-PROMPT='$(_prompt_exit_char) $(_prompt_shell_level)$(_prompt_host_if_remote)$(_prompt_pwd) $(_prompt_vi_mode)$(_prompt_input)%{$reset_color%} '
+PROMPT='$(_prompt_exit_char) $(_prompt_shell_level)$(_prompt_host_if_remote)$(_prompt_dir_git_or_pwd) $(_prompt_vi_mode)$(_prompt_input)%{$reset_color%} '
 
 RPROMPT='$(_prompt_exit_and_command_time)%{$reset_color%}'
