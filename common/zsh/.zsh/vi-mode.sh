@@ -6,9 +6,13 @@
 # also shows the mode when accepted, else it always changes to ins)
 # similarly, C-c from cmd mode starts a new line, so no need to TRAPINT
 
-detect_vi_mode() {
+setup_vi_mode() {
     function zle-keymap-select { zle reset-prompt }
     zle -N zle-keymap-select
+
+    # explicit vi mode, shorter switch
+    bindkey -v
+    export KEYTIMEOUT=1
 }
 
 zsh_vi_mode_ternary() {

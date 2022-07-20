@@ -4,6 +4,7 @@ os_type=$(uname | tr '[:upper:]' '[:lower:]')
 _debug_log "zsh setup for $os_type"
 
 autoload -U colors && colors
+source ~/.zsh/vi-mode.sh && setup_vi_mode
 
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh

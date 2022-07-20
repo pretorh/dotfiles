@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-source ~/.zsh/vi-mode.sh && detect_vi_mode
-
 autoload -U promptinit && promptinit
 setopt prompt_subst
 
