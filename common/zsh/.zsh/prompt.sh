@@ -71,10 +71,10 @@ _prompt_vi_mode() {
 _prompt_input() {
     local prefix=''
     if [ ! -f "$HISTFILE" ] ; then
-        prefix="$prefix🙈"
+        prefix="$prefix%K{227}"
     fi
 
-    echo "%F{white}$prefix%(#.#.:)%f"
+    echo " $prefix%(#.%F{white}#.%F{22}➤)%f%k"
 }
 
 _prompt_shell_level() {
