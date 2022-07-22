@@ -26,7 +26,7 @@ _prompt_host() {
 _prompt_host_if_remote() {
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
         # prefixed with SSH if ssh session
-        echo "%F{white}%n%F{cyan}@$(_prompt_host_name)%f "
+        echo "%F{white}%n%F{cyan}@$(_prompt_host)%f "
     fi
 }
 
