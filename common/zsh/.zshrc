@@ -27,3 +27,8 @@ source $HOME/.zsh/keys.$os_type.sh
 source $HOME/.zsh/auto-complete.sh
 source $HOME/.zsh/timing.sh
 source $HOME/.zsh/prompt.sh
+
+if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] ; then
+    # use https://github.com/zsh-users/zsh-syntax-highlighting if installed
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
