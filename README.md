@@ -20,3 +20,4 @@ files which should not be tracked in the repo, and preferably not even symlinked
 ## references/links
 
 - [256 colors](https://www.ditig.com/256-colors-cheat-sheet)
+- [zsh auto complete](https://thevaluable.dev/zsh-completion-guide-examples/)
