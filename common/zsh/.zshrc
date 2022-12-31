@@ -4,7 +4,8 @@ os_type=$(uname | tr '[:upper:]' '[:lower:]')
 _debug_log "zsh setup for $os_type"
 
 autoload -U colors && colors
-source ~/.zsh/vi-mode.sh && setup_vi_mode
+source ~/.zsh/vi-mode.sh &&
+setup_vi_mode '2 q' '2 q' # cursort mode: block cursor for ins and cmd
 
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh
@@ -26,3 +27,8 @@ source $HOME/.zsh/keys.$os_type.sh
 source $HOME/.zsh/auto-complete.sh
 source $HOME/.zsh/timing.sh
 source $HOME/.zsh/prompt.sh
+
+if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] ; then
+    # use https://github.com/zsh-users/zsh-syntax-highlighting if installed
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

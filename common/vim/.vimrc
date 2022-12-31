@@ -90,11 +90,25 @@ cabbrev lprev Lprev
 " lingering finger on shift when :qa
 cabbrev Qa echoe 'you probably meant :qa?' \| sleep 400m \| qa
 
+" maybe allow this based on keyboard
+source ~/.vim/no-arrow-keys.vim
+
+source ~/.vim/cursor.vim
+" set shorter command timeout. useful with cursor, else there is a delay after switching insert -> normal
+"   example from :help timeoutlen
+:set timeout timeoutlen=3000 ttimeoutlen=100
+
+" split panes to right and bottom
+set splitbelow
+set splitright
+
 function s:OpenFileAtLastLocation()
   " from https://github.com/thoughtbot/dotfiles/blob/master/vimrc#L39
   if &filetype == 'gitcommit' || bufname("%")[len(bufname("%"))-19:] == '.git/COMMIT_EDITMSG'
     " filetype is (sometimes?) empty here, so also check the filename
     " not for git commit messages
+  elseif &filetype == 'gitrebase' || bufname("%")[len(bufname("%"))-33:] == '.git/rebase-merge/git-rebase-todo'
+    " not for git rebase messagess
   elseif line("'\"") < 0 || line("'\"") > line("$")
     " not when position is invalid
   else
