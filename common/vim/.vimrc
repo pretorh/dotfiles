@@ -71,7 +71,7 @@ set foldcolumn=2
 :set backspace=indent,eol,start
 
 " bind ctrl-J to pretty print as json
-map <C-J> :%!python -m json.tool<CR>
+map <C-J> :%!python3 -m json.tool<CR>
 
 " search highlighting
 :hi Search ctermfg=0 ctermbg=3
