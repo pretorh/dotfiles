@@ -55,6 +55,13 @@ nmap <C-B> :tabe<CR>:q<CR>:make -k all<CR>
 " F6 = next build output details
 nmap <F6> :cn<CR>
 
+" change line to comment in visual mode using: /
+"  ^ return to beginning of text
+"  <C-v> switch to visual block mode
+"  I// to insert from visual block, adding //+space
+"  escape to apply insert to all v-block lines
+:vmap / ^<C-v>I// <Esc>
+
 " code folding
 set foldmethod=indent
 set foldlevel=2
