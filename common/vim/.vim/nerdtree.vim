@@ -5,8 +5,29 @@ if argc() == 0 && !exists('s:std_in')
     autocmd VimEnter * NERDTree
 endif
 
+function NERDTreeCloseIfLastWindowInTab()
+    if ! exists('b:NERDTree') || ! b:NERDTree.isTabTree()
+        " no NERDTree or not open, no action
+        return
+    endif
+
+    if tabpagenr('$') == 1
+        echo "this is the last tab"
+        return
+    endif
+
+    if winnr('$') == 1
+        " todo: this is failing on arch
+        try
+            :NERDTreeClose
+        catch
+            echo "failed to close NERDTree"
+        endtry
+    endif
+endfunction
+
 " close NERDTree if it is the last window in tab, but not if this is the last tab
-autocmd BufEnter * if winnr('$') == 1 && tabpagenr('$') > 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * :call NERDTreeCloseIfLastWindowInTab()
 
 " auto mirror nerdtree if a new buffer is created, without nerdtree, and the file is readable, selecting the file
 function NERDTreeAutoMirror()
