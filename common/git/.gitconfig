@@ -1,5 +1,6 @@
 [push]
     default = simple
+    autosetupremote = true
 [pull]
     default = current
     ff = only
