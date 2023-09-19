@@ -18,3 +18,5 @@
 [includeIf "gitdir:~/Documents/work/"]
     ; use work-specific user details for work repositorries
     path = git/user-work.config
+[init]
+    defaultBranch = master
