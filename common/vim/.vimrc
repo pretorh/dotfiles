@@ -133,5 +133,16 @@ source ~/.vim/nerdtree.vim
 source ~/.vim/ctrlp.vim
 source ~/.vim/signify.vim
 
+" project specific setup: load .project.vim files if it exists
+let s:allowedProjectDirs = expand('~/.vim/allowed-project-vims.txt')
+if filereadable('.project.vim') && filereadable(s:allowedProjectDirs)
+  let s:allowed = readfile(s:allowedProjectDirs)
+  if index(s:allowed, getcwd()) == -1
+    echo 'add "' . getcwd() '" to ' . s:allowedProjectDirs . ' to allow sourcing .project.vim'
+  else
+    source .project.vim
+  endif
+endif
+
 " set file types
 autocmd BufNewFile,BufRead *.ts :set filetype=typescript

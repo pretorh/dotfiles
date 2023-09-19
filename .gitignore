@@ -2,3 +2,6 @@
 *.swo
 .cmp
 .DS_STORE
+
+# vim private files
+common/vim/.vim/allowed-project-vims.txt
