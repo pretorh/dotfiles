@@ -12,7 +12,6 @@ function NERDTreeCloseIfLastWindowInTab()
     endif
 
     if tabpagenr('$') == 1
-        echo "this is the last tab"
         return
     endif
 
@@ -21,7 +20,6 @@ function NERDTreeCloseIfLastWindowInTab()
         try
             :NERDTreeClose
         catch
-            echo "failed to close NERDTree"
         endtry
     endif
 endfunction
