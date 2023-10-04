@@ -13,6 +13,7 @@
 [core]
     compression = 9
     editor = vim
+    excludesFile = ~/git/gitignore_global
 [include]
     path = git/user.config
 [includeIf "gitdir:~/Documents/work/"]

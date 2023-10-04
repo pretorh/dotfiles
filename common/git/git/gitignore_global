@@ -1,0 +1,9 @@
+# project temp text files
+notes
+
+# vim temp files
+*.swp
+*.swo
+
+# vim settings for projects (
+.project.vim
