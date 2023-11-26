@@ -6,10 +6,16 @@
 # also shows the mode when accepted, else it always changes to ins)
 # similarly, C-c from cmd mode starts a new line, so no need to TRAPINT
 # cursor setup based on https://github.com/Phantas0s/.dotfiles/blob/master/zsh/plugins/cursor_mode
+# examples values:
+# 2 q: non-blinking block
+# 3 q: blinking underscore
+# 4 q: non-blinking underscore
+# 5 q: blinking bar
+# 6 q: non-blinking bar
 
 setup_vi_mode() {
     cursor_code_ins=${1-'6 q'}
-    cursor_code_cmd=${1-'2 q'}
+    cursor_code_cmd=${2-'2 q'}
 
     update_cursor() {
         echo -ne '\e['$(zsh_vi_mode_ternary "$cursor_code_cmd" "$cursor_code_ins")
