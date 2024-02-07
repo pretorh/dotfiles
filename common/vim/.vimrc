@@ -11,6 +11,10 @@ set number
 set numberwidth=3
 set updatetime=250
 
+" case insensitive if all lower, else case-sensitive
+set ignorecase
+set smartcase
+
 " column marker on right
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 hi LineNr ctermfg=50 ctermbg=34
