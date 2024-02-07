@@ -25,6 +25,8 @@ fi
 remain_part="($remain $remain_suffix)"
 if [ "$perc" == "100%" ] && [ "$remain" == "0:00" ] ; then
     remain_part="(full)"
+elif [ "$remain" == "not charging" ] ; then
+    remain_part="($remain)"
 fi
 
 if [ "$DEBUG" ] ; then
