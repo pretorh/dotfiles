@@ -28,6 +28,11 @@ source $HOME/.zsh/auto-complete.sh
 source $HOME/.zsh/timing.sh
 source $HOME/.zsh/prompt.sh
 
+function ssource {
+    gpg --decrypt "$1" 2>/dev/null | source /dev/stdin
+    echo "sourced from $1"
+}
+
 if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] ; then
     # use https://github.com/zsh-users/zsh-syntax-highlighting if installed
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
