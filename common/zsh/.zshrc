@@ -29,8 +29,9 @@ source $HOME/.zsh/timing.sh
 source $HOME/.zsh/prompt.sh
 
 function ssource {
-    gpg --decrypt "$1" 2>/dev/null | source /dev/stdin
-    echo "sourced from $1"
+    # quiet to not show encryption details
+    # do not redirect stderr and `&& echo` to fail the command on gpg errors
+    gpg --quiet --decrypt "$1" && echo "echo 'sourced'" | source /dev/stdin
 }
 
 if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] ; then
