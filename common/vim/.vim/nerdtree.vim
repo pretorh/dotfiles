@@ -50,7 +50,7 @@ function ToggleNERDTreeOnFindFile()
 endfunction
 
 let NERDTreeShowHidden = 1
-let NERDTreeIgnore = [ '\.git$', '\.*\.swp$', 'node_modules', '__pycache__' ]
+let NERDTreeIgnore = [ '\.git$', '.DS_Store', '\.*\.swp$', 'node_modules', '__pycache__' ]
 
 map <F2> :call ToggleNERDTreeOnFindFile()<CR>
 map <leader>ff :NERDTreeFind<CR>
