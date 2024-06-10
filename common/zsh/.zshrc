@@ -1,4 +1,5 @@
 source $HOME/.zsh/debug.sh
+[ -f $HOME/.zprofile ] && source $HOME/.zprofile
 
 os_type=$(uname | tr '[:upper:]' '[:lower:]')
 _debug_log "zsh setup for $os_type"
