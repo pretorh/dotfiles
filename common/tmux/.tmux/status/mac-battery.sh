@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # get percent line. split by ;, then by spaces
-perc=$(pmset -g batt | grep % | awk -F ';' '{print $1}' | awk -F ' ' '{print $3}')
+percent=$(pmset -g batt | grep % | awk -F ';' '{print $1}' | awk -F ' ' '{print $3}')
 
 # get the remaining estimated time
 remain=$(pmset -g batt | grep % | perl -pe "s/^.*\((no estimate)\).*$/\1/")
@@ -15,15 +15,15 @@ fi
 
 source=$(pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/")
 if [ "$source" == "Battery" ] ; then
-    source_icon="b ";
+    source_icon="b";
     remain_suffix="remain";
 elif [ "$source" == "AC" ] ; then
-    source_icon="p ";
+    source_icon="p";
     remain_suffix="till full";
 fi
 
 remain_part="($remain $remain_suffix)"
-if [ "$perc" == "100%" ] && [ "$remain" == "0:00" ] ; then
+if [ "$percent" == "100%" ] && [ "$remain" == "0:00" ] ; then
     remain_part="(full)"
 elif [ "$remain" == "not charging" ] ; then
     remain_part="($remain)"
@@ -31,7 +31,7 @@ fi
 
 if [ "$DEBUG" ] ; then
     echo "pmset line=$(pmset -g batt | grep %)"
-    echo "perc=$perc"
+    echo "percent=$percent"
     echo "remain=$remain"
     echo "remain_suffix=$remain_suffix"
     echo "remain_part=$remain_part"
@@ -40,11 +40,8 @@ if [ "$DEBUG" ] ; then
 fi
 
 # limit total length
-if [ ${#perc} -gt 10 ] ; then
-    perc='?%'
-fi
-if [ ${#remain} -gt 6 ] ; then
-    remain='?'
+if [ ${#percent} -gt 10 ] ; then
+    percent='?%'
 fi
 
-echo "$source_icon $perc $remain_part"
+echo "$source_icon $percent $remain_part"
