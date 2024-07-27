@@ -10,7 +10,7 @@ if [ "$remain" == "no estimate" ] ; then
 elif pmset -g batt | grep "not charging" > /dev/null ; then
     remain='not charging'
 else
-    remain=$(pmset -g batt | grep % | perl -pe "s/^.*(\d:\d\d) remaining.*$/\1/")
+    remain=$(pmset -g batt | grep % | perl -pe "s/^.* (\d+:\d\d) remaining.*$/\1/")
 fi
 
 source=$(pmset -g batt | grep "drawing from" | perl -pe "s/^.*from '(.+) Power'$/\1/")
