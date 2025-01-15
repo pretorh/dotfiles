@@ -42,6 +42,9 @@ highlight SpellBad cterm=bold ctermbg=DarkRed ctermfg=white
 " show commands in right corner
 set showcmd
 
+" spelling
+set spell
+
 " matching paren color
 highlight MatchParen cterm=bold ctermfg=cyan ctermbg=darkgrey
 

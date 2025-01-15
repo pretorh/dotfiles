@@ -6,5 +6,6 @@ indent/
 syntax/
 /autoload/
 /plugged/
+/spell/
 
 .netrwhist
