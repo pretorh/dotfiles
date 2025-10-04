@@ -10,6 +10,7 @@ setup_vi_mode '2 q' '2 q' # cursort mode: block cursor for ins and cmd
 
 source $HOME/.zsh/aliases/cd.sh
 source $HOME/.zsh/aliases/git.sh
+source $HOME/.zsh/aliases/android.sh
 source $HOME/.zsh/aliases/docker.sh
 
 export EDITOR=vim
