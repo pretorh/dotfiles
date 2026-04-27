@@ -18,7 +18,7 @@
     begone = ! "git gone | xargs -r git branch -d"
 [core]
     compression = 9
-    editor = vim
+    editor = nvim
     excludesFile = ~/git/gitignore_global
 [include]
     path = git/user.config
